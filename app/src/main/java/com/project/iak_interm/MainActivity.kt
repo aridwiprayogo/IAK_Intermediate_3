@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,9 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-        recyclerView = findViewById(R.id.recyclerview)
-        recyclerView!!.layoutManager = LinearLayoutManager(this)
+        recyclerView = findViewById<View>(R.id.recyclerview) as RecyclerView?
+        recyclerView!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         AsyncTack(recyclerView!!, this).execute()
     }
 }

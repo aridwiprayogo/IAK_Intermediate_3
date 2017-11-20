@@ -1,10 +1,10 @@
 package com.project.iak_interm
 
 /**
- * Created by MYWINDOWS on 11/11/2017.
+ * Created by knalb on 11/11/17.
  */
 
-class modelData {
-    var nama: String? = null
+class ModelData {
+    var name: String? = null
     var image: String? = null
 }

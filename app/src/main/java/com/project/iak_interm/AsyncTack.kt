@@ -17,7 +17,7 @@ import java.util.*
 
 class AsyncTack(private val recyclerView: RecyclerView, private val context: Context) : AsyncTask<String, String, String>() {
 
-    private val TAG = AsyncTack::class.java.simpleName
+    private val TAG = AsyncTack::class.java.getSimpleName()
 
     //di jalankan pertama kali
     override fun onPreExecute() {
@@ -37,7 +37,7 @@ class AsyncTack(private val recyclerView: RecyclerView, private val context: Con
         try {
             // get request data dari api bukalapak
             val response = okHttpClient.newCall(request).execute()
-            return response.body()!!.string()
+            return response.body().string()
 
         } catch (e: IOException) {
             e.printStackTrace()
@@ -52,27 +52,32 @@ class AsyncTack(private val recyclerView: RecyclerView, private val context: Con
 
         } else {
             // tampil kan data json result
+
             try {
                 val jsonObject = JSONObject(s)
                 val jsonArray = jsonObject.getJSONArray("products")
-                val data = ArrayList<modelData>()
+
+
+                val data = ArrayList<ModelData>()
+
                 for (i in 0 until jsonArray.length()) {
                     val `object` = jsonArray.getJSONObject(i)
 
-                    Log.e("nama produk", `object`.getString("name"))
+                    Log.e("nama_produk", `object`.getString("name"))
 
-                    val modelData = modelData()
-                    modelData.nama = `object`.getString("name")
+                    val modelData = ModelData()
+                    modelData.name = `object`.getString("name")
 
                     val imageJson = `object`.getJSONArray("small_images")
 
                     for (j in 0 until imageJson.length()) {
                         modelData.image = imageJson.getString(j)
                     }
+
                     data.add(modelData)
                 }
-                val adapterRecyclerView = AdapterRecyclerView(data, context)
-                recyclerView.adapter = adapterRecyclerView
+                val view = AdapterRecyclerView(data, context)
+                recyclerView.adapter = view
 
             } catch (e: JSONException) {
                 e.printStackTrace()
