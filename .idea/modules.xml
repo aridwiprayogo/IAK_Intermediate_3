@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/IndonesiaAndroidKejar-3periode3.iml" filepath="$PROJECT_DIR$/.idea/IndonesiaAndroidKejar-3periode3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IAK_Intermediate_3.iml" filepath="$PROJECT_DIR$/IAK_Intermediate_3.iml" />
+      <module fileurl="file://D:\IAK_Intermediate_3\.idea\IndonesiaAndroidKejar-3periode3.iml" filepath="D:\IAK_Intermediate_3\.idea\IndonesiaAndroidKejar-3periode3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
